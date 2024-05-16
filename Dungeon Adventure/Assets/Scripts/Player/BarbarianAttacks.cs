@@ -8,6 +8,7 @@ using UnityEngine;
 public class BarbarianAttacks : MonoBehaviour {
 
     public float punchDamage = 10;
+    public float knockbackForce = 500f;
     public Collider2D punchCollider;
     Vector2 attackOffset;
     
@@ -40,16 +41,28 @@ public class BarbarianAttacks : MonoBehaviour {
 
     }
 
-    public void OnTriggerEnter2D(Collider2D other) {
-        if (other.tag == "Monster") {
-            // Barabarian deals damage to enemy
-            MonsterController monster = other.GetComponent<MonsterController>();
+    public void OnTriggerEnter2D(Collider2D collider) {
 
-            if (monster != null) {
-                monster.OnHit(punchDamage);
+        IDamageable damageableObject = collider.GetComponent<IDamageable>();
+
+        if (collider.tag == "Monster") {
+
+            if (damageableObject != null) {
+                // Barabarian deals damage to enemy
+                MonsterController monster = collider.GetComponent<MonsterController>();
+
+                // Calculate direction between Barbarian and Monster
+                Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+
+                Vector2 direction = (Vector2) (collider.gameObject.transform.position - parentPosition).normalized;
+
+                Vector2 knockback = direction * knockbackForce;
+
+                if (monster != null) {
+                    damageableObject.OnHit(punchDamage, knockback);
+                    // monster.SendMessage("OnHit", punchDamage, knockback);
+                }
             }
         }
     }
-
-    
 }

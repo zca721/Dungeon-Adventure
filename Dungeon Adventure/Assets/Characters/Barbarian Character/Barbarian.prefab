@@ -11,10 +11,11 @@ GameObject:
   - component: {fileID: 6105779185423681813}
   - component: {fileID: 6105779185423681812}
   - component: {fileID: 6918942073741542039}
-  - component: {fileID: 3431560465094398969}
   - component: {fileID: 7995734429992460477}
   - component: {fileID: 6846822357494082270}
   - component: {fileID: 7445878909965764564}
+  - component: {fileID: 3431560465094398969}
+  - component: {fileID: 3120027414182324462}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Player
@@ -120,35 +121,6 @@ MonoBehaviour:
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &3431560465094398969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6105779185423681819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2595e39999c2a452c87d32d4ec16fdf1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 1
-  collisionOffset: 0.5
-  movementFilter:
-    useTriggers: 0
-    useLayerMask: 0
-    useDepth: 0
-    useOutsideDepth: 0
-    useNormalAngle: 0
-    useOutsideNormalAngle: 0
-    layerMask:
-      serializedVersion: 2
-      m_Bits: 0
-    minDepth: 0
-    maxDepth: 0
-    minNormalAngle: 0
-    maxNormalAngle: 0
-  punchAttack: {fileID: 2703772011020649279}
 --- !u!50 &7995734429992460477
 Rigidbody2D:
   serializedVersion: 4
@@ -183,7 +155,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0060357526, y: -0.26988763}
+  m_Offset: {x: -0.00061911345, y: -0.26988763}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -194,7 +166,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13471504, y: 0.020896673}
+  m_Size: {x: 0.27446723, y: 0.020896673}
   m_EdgeRadius: 0
 --- !u!95 &7445878909965764564
 Animator:
@@ -217,6 +189,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3431560465094398969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105779185423681819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2595e39999c2a452c87d32d4ec16fdf1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  collisionOffset: 0.5
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  punchAttack: {fileID: 2703772011020649279}
+--- !u!114 &3120027414182324462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105779185423681819}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3c61e3df84f2475b9059e0a293520c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  disableSimulation: 1
+  totalHealth: 200
+  targetableObject: 1
 --- !u!1 &7444003819829570359
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,4 +305,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   punchDamage: 10
+  knockbackForce: 1000
   punchCollider: {fileID: 2755537042658834764}
