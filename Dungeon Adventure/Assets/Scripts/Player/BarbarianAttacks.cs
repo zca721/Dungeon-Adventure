@@ -40,9 +40,14 @@ public class BarbarianAttacks : MonoBehaviour {
 
     }
 
-    public void OnTriggerEnter2D(Collider2D enemy) {
-        if (enemy.tag == "Enemy") {
+    public void OnTriggerEnter2D(Collider2D other) {
+        if (other.tag == "Monster") {
             // Barabarian deals damage to enemy
+            MonsterController monster = other.GetComponent<MonsterController>();
+
+            if (monster != null) {
+                monster.OnHit(punchDamage);
+            }
         }
     }
 
