@@ -1,51 +1,67 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
 public class MonsterController : MonoBehaviour
 {
+    public float collisionDamage = 5;
+
+    public float moveSpeed = 1f;
+
+    public DetectionZone detectionZone;
+
+    Rigidbody2D rb;
+
+    DamageableCharacter damageableCharacter;
+
     Animator animator;
 
-    bool isAlive = true;
+    SpriteRenderer spriteRenderer;
 
-    public float Health {
-        set {
-            if (value < totalHealth) {
-                print("Demon got hit");
-                animator.SetTrigger("hit");
-            }
-
-            print(value);
-            totalHealth = value;
-
-            if (totalHealth <= 0) {
-                animator.SetBool("isAlive", false);
-            }
-        } get {
-            return totalHealth;
-        }
-    }
-
-    public float totalHealth = 30;
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
+        rb = GetComponent<Rigidbody2D>();
+        damageableCharacter = GetComponent<DamageableCharacter>();
         animator = GetComponent<Animator>();
-        animator.SetBool("isAlive", isAlive);
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    } 
+
+    public void FixedUpdate() {
+        // Collider2D firstDetectableObject = detectionZone.detectableObjects[0];
+
+        if (damageableCharacter.Targetable && detectionZone.detectableObjects.Count > 0) {
+            // Calculate direction towards Barbarian
+            Vector2 direction = (detectionZone.detectableObjects[0].transform.position - transform.position).normalized;
+
+            // Move towards Barbarian
+            rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+
+            // Sets direction of monster based off of Flip X being positve or negative
+            if (direction.x < 0) {
+                spriteRenderer.flipX = true;
+            } else if (direction.x > 0) {
+                spriteRenderer.flipX = false;
+            }
+
+            // Makes monster start run animation
+            animator.SetBool("isMoving", true);
+        } else {
+            // Makes monster stop run animation
+            animator.SetBool("isMoving", false);
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void OnCollisionEnter2D(Collision2D collision) {
+
+        IDamageable damageableObject = collision.collider.GetComponent<IDamageable>();
         
-    }
-
-    public void OnHit(float damage) {
-        Health -= damage;
-    }
-
-    public void DestroyDeadMonster() {
-        Destroy(gameObject);
+        if (collision.collider.tag == "Player") {
+            Debug.Log("Enemy Collision");
+            if (damageableObject != null) {
+                damageableObject.OnHit(collisionDamage);
+            }
+        }
     }
 }
