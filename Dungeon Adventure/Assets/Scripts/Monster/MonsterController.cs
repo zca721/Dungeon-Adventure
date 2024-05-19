@@ -10,6 +10,8 @@ public class MonsterController : MonoBehaviour
 
     public float moveSpeed = 1f;
 
+    public float knockbackForce = 500f;
+
     public DetectionZone detectionZone;
 
     Rigidbody2D rb;
@@ -60,7 +62,13 @@ public class MonsterController : MonoBehaviour
         if (collision.collider.tag == "Player") {
             Debug.Log("Enemy Collision");
             if (damageableObject != null) {
-                damageableObject.OnHit(collisionDamage);
+                Vector3 parentPosition = gameObject.GetComponentInParent<Transform>().position;
+
+                Vector2 direction = (Vector2) (collision.collider.gameObject.transform.position - parentPosition).normalized;
+
+                Vector2 knockback = direction * knockbackForce;
+
+                damageableObject.OnHit(collisionDamage, knockback);
             }
         }
     }

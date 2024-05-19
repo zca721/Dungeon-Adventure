@@ -208,8 +208,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.00069746375, y: -0.07951093}
-  m_Size: {x: 0.2647639, y: 0.40007222}
+  m_Offset: {x: -0.0057700872, y: -0.0721395}
+  m_Size: {x: 0.4846666, y: 0.6062592}
   m_Direction: 0
 --- !u!114 &5624415665879882487
 MonoBehaviour:
@@ -224,7 +224,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDamage: 5
-  moveSpeed: 0.5
+  moveSpeed: 1
+  knockbackForce: 500
   detectionZone: {fileID: 3708219039938437678}
 --- !u!114 &5477693895008942989
 MonoBehaviour:
