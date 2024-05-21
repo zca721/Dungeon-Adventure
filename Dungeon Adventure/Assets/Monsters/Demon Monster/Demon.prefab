@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDamage: 5
-  moveSpeed: 1
+  moveSpeed: 0.7
   knockbackForce: 500
   detectionZone: {fileID: 3708219039938437678}
 --- !u!114 &5477693895008942989
