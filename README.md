@@ -14,6 +14,10 @@ Dungeon Adventure
   - https://www.youtube.com/watch?v=8rTK68omQow
 - Followed this series by Sunny Valley Studio to create randomly generated dungeon
   - https://www.youtube.com/playlist?list=PLcRSafycjWFenI87z7uZHFv6cUG2Tzu9v
+- Followed this video by BMo to implement power ups
+  - https://www.youtube.com/watch?v=PkNRPOrtyls
+- Followed this video by BMo to implement pillars for extraction from game
+  - https://www.youtube.com/watch?v=f75Wcwu33OY
 
 ### Creator:
 *Zachary Anderson*
@@ -29,3 +33,8 @@ Dungeon Adventure
 - The tutorial I follewed to setup the Demon monster did not show how to transition from idle animation to moving animation for the Demon monster, but I figured out how to use the SetBool action on my Demon monster so when the Demon monster was moving the isMoving action would be true, thus transition from idle to move, and vice versa when the Demon monster no longer isMoving.
 - The tutorial I follewed to setup the Demon monster did not show how to make the Demon monster look left and right when chasing the Barbarian character. But I figured out that I could use the calculation for when the Demon monster should move towards the Barbarian character when detected, and when x < 0 it looks left and if x > 0 it looks right.
 - When Barbarian character was coming in contact with Demon monster, the Demon would deal damage to the Barbarian, but then would just continue to be incontact with the Barbarian and not deal damage. So, I added knockback force to the Demon monster, so when the Barbarian comes in contact with the Demon, the Barbarian gets pushed back.
+
+## Iteration 6:
+#### Issues:
+- After setting up the power buff and the knockback buff I was having an issue when the Barbarian was collecting the power ups, it was having a conflict with the Object not pertaining to the PlayerController class. But I later realized I need the Object to be connected to the BarbarianAttacks class and have the object be collected by a collision with the PunchHitbox, so for know those two power ups will be collected when the Barbarian character hits them.
+- Was having an issue with the Barbarian character collecting the pillars, but realized that I needed the Collector script attached to my Barabarian. Then it would implement the ICollectable interface with my pillar classes and use the Collector class to enable the collecting.
