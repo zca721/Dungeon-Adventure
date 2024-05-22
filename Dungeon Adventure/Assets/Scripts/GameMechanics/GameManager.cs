@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
 
     public static void Finish() {
         if (collectedPillars >= victoryCondition) {
-            SceneManager.LoadScene("Level 2");
+            collectedPillars = 0;
+            SceneManager.LoadScene("Scene 2");
         } else {
             UIManager.MyInstance.ShowVictoryCondition(collectedPillars, victoryCondition);
         }
