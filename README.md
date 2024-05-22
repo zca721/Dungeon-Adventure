@@ -18,6 +18,8 @@ Dungeon Adventure
   - https://www.youtube.com/watch?v=PkNRPOrtyls
 - Followed this video by BMo to implement pillars for extraction from game
   - https://www.youtube.com/watch?v=f75Wcwu33OY
+- Followed this video by Epic Byte Studios for victory condition and finish level or game
+  - https://www.youtube.com/watch?v=BlK9-U3Rwx8
 
 ### Creator:
 *Zachary Anderson*
@@ -38,3 +40,4 @@ Dungeon Adventure
 #### Issues:
 - After setting up the power buff and the knockback buff I was having an issue when the Barbarian was collecting the power ups, it was having a conflict with the Object not pertaining to the PlayerController class. But I later realized I need the Object to be connected to the BarbarianAttacks class and have the object be collected by a collision with the PunchHitbox, so for know those two power ups will be collected when the Barbarian character hits them.
 - Was having an issue with the Barbarian character collecting the pillars, but realized that I needed the Collector script attached to my Barabarian. Then it would implement the ICollectable interface with my pillar classes and use the Collector class to enable the collecting.
+- Was having issues with getting my system for collecting the pillars to coincide with the victyor conditions with in the GameManager class, I was getting an issue where I was trying to create a game Object with 'new' inside the single instance checker. So, I by passed the single instance and just went straight to the method required to calculate how many pillars I have collected and once I get to 4 I can finish the level or game.
