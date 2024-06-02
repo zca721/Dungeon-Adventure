@@ -31,6 +31,19 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
             if (totalHealth <= 0) {
                 animator.SetBool("isAlive", false);
                 Targetable = false;
+
+                if (animator.CompareTag("Player")) {
+                    animator.SetBool("isAlive", false);
+                    Targetable = false;
+                    
+
+                    // Destroys all Monsters on player death
+                    GameObject[] objectsWithTag = GameObject.FindGameObjectsWithTag("Monster");
+                    foreach (GameObject monster in objectsWithTag)
+                    {
+                        Destroy(monster);
+                    }
+                }
             }
         } get {
             return totalHealth;
