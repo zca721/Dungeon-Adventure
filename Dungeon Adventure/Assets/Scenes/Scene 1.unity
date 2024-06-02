@@ -35958,6 +35958,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3120027414182324462, guid: de314ef1f43e441ee9b7ba0e6fc218d6, type: 3}
+      propertyPath: totalHealth
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3431560465094398969, guid: de314ef1f43e441ee9b7ba0e6fc218d6, type: 3}
       propertyPath: collisionOffset
       value: 0.02
