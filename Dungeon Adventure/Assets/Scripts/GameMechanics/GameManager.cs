@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
 
     private static int victoryCondition = 4;
 
-    public static int levelCounter = 0;
-
     // private static GameManager instance;
     // private static GameManager instance;
     // private void Awake() {
@@ -41,11 +39,8 @@ public class GameManager : MonoBehaviour
     }
 
     public static void Finish() {
-        if (collectedPillars >= victoryCondition && levelCounter == 0) {
+        if (collectedPillars >= victoryCondition) {
             collectedPillars = 0;
-            // levelCounter++;
-            SceneManager.LoadScene("Winner Menu");
-        } else if (collectedPillars >= victoryCondition && levelCounter == 1) {
             SceneManager.LoadScene("Winner Menu");
         } else {
             UIManager.MyInstance.ShowVictoryCondition(collectedPillars, victoryCondition);
