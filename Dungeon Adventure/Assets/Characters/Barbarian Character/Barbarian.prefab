@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 7445878909965764564}
   - component: {fileID: 3431560465094398969}
   - component: {fileID: 3120027414182324462}
+  - component: {fileID: 9209686305895884861}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Player
@@ -233,6 +234,14 @@ MonoBehaviour:
   disableSimulation: 1
   totalHealth: 200
   targetableObject: 1
+--- !u!81 &9209686305895884861
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105779185423681819}
+  m_Enabled: 1
 --- !u!1 &7444003819829570359
 GameObject:
   m_ObjectHideFlags: 0
