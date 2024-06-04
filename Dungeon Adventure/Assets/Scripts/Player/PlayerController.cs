@@ -6,18 +6,27 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class PlayerController : MonoBehaviour   // MonoBehavior allows for Unity to see and use the scripts
-{
+public class PlayerController : MonoBehaviour { // MonoBehavior allows for Unity to see and use the scripts
     public float moveSpeed = 1f;
+
     public float collisionOffset = 0.5f;
+
+    public bool canMove = true;
+
     public ContactFilter2D movementFilter;
+
     public BarbarianAttacks punchAttack;
-    bool canMove = true;
+
     Vector2 movementInput;
+
     SpriteRenderer spriteRenderer;
+
     Rigidbody2D rb;
+
     Animator animator;
+
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
+    
     // Start is called before the first frame update
     void Start() {
         rb = GetComponent<Rigidbody2D>();

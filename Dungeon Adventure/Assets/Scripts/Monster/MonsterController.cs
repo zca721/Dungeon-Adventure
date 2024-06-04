@@ -4,15 +4,15 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
 
-public class MonsterController : MonoBehaviour
-{
-    public float collisionDamage = 5;
-
-    public float moveSpeed = 1f;
-
-    public float knockbackForce = 500f;
-
-    public DetectionZone detectionZone;
+public class MonsterController : MonoBehaviour {
+    [SerializeField]    // Allows for variable to be private and still able to view from Unity Inspector
+    private float collisionDamage = 5;
+    [SerializeField]
+    private float moveSpeed = 1f;
+    [SerializeField]
+    private  float knockbackForce = 500f;
+    [SerializeField]
+    private  DetectionZone detectionZone;
 
     Rigidbody2D rb;
 
@@ -55,7 +55,7 @@ public class MonsterController : MonoBehaviour
 
     }
 
-    public void OnCollisionEnter2D(Collision2D collision) {
+    private void OnCollisionEnter2D(Collision2D collision) {
 
         IDamageable damageableObject = collision.collider.GetComponent<IDamageable>();
         

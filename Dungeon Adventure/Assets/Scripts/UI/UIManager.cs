@@ -4,22 +4,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
 
-public class UIManager : MonoBehaviour
-{
-
+public class UIManager : MonoBehaviour {
     [SerializeField]
     TextMeshProUGUI textPillarsCount, textVictoryCondition, textGameOver;
 
     [SerializeField]
     GameObject pillarCondition, victoryCondition, gameOverCondition, gameOverBackGroundCondition, restartCondition, mainMenuCondition;
     private static UIManager instance;
-    private void Awake() {
-        if (instance == null) {
-            instance = this;
-        } else {
-            DestroyImmediate(this);
-        }
-    }
 
     public static UIManager MyInstance {
         get {
@@ -27,6 +18,14 @@ public class UIManager : MonoBehaviour
                 instance = new UIManager();
 
             return instance;
+        }
+    }
+
+    private void Awake() {
+        if (instance == null) {
+            instance = this;
+        } else {
+            DestroyImmediate(this);
         }
     }
 

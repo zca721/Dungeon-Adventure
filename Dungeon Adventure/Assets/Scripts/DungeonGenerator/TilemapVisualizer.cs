@@ -6,8 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class TilemapVisualizer : MonoBehaviour
-{
+public class TilemapVisualizer : MonoBehaviour {
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap;
     [SerializeField]
@@ -19,16 +18,13 @@ public class TilemapVisualizer : MonoBehaviour
         PaintTiles(floorPositions, floorTilemap, floor);
     }
 
-    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
-    {
-        foreach (var position in positions)
-        {
+    private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile) {
+        foreach (var position in positions) {
             PaintSingleTile(tilemap, tile, position);
         }
     }
 
-    internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
-    {
+    internal void PaintSingleBasicWall(Vector2Int position, string binaryType) {
         Debug.Log(position + " Type: " + binaryType);
         int typeAsInt = Convert.ToInt32(binaryType, 2); // Converts binary number to an int
         TileBase tile = null;
@@ -48,8 +44,7 @@ public class TilemapVisualizer : MonoBehaviour
             PaintSingleTile(wallTilemap, tile, position);
     }
 
-    private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position)
-    {
+    private void PaintSingleTile(Tilemap tilemap, TileBase tile, Vector2Int position) {
         var tilePosition = tilemap.WorldToCell((Vector3Int)position);
         tilemap.SetTile(tilePosition, tile);
     }
@@ -59,8 +54,7 @@ public class TilemapVisualizer : MonoBehaviour
         wallTilemap.ClearAllTiles();
     }
 
-    internal void PaintSingleCornerWall(Vector2Int position, string binaryType)
-    {
+    internal void PaintSingleCornerWall(Vector2Int position, string binaryType) {
         int typeAsInt = Convert.ToInt32(binaryType, 2); // Converts binary number to an int
         TileBase tile = null;
 
@@ -87,8 +81,7 @@ public class TilemapVisualizer : MonoBehaviour
     }
 
     // Method Debug Test***** Works!!!
-    internal void PaintSingleCornerWallSpecialCase (Vector2Int position, string binaryType)
-    {
+    internal void PaintSingleCornerWallSpecialCase (Vector2Int position, string binaryType) {
         int typeAsInt = Convert.ToInt32(binaryType, 2); // Converts binary number to an int
         TileBase tile = null;
 

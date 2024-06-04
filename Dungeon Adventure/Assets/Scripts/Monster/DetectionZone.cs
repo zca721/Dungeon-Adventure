@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DetectionZone : MonoBehaviour
-{
+public class DetectionZone : MonoBehaviour {
     public List<Collider2D> detectableObjects = new List<Collider2D>();
+
     public Collider2D detectionCollider;
 
     public AudioSource monsterAudio;
@@ -14,15 +14,14 @@ public class DetectionZone : MonoBehaviour
     }
 
     // Detects when player is in range of monster
-    public void OnTriggerEnter2D(Collider2D collider) {
+    private void OnTriggerEnter2D(Collider2D collider) {
         if (collider.tag == "Player") {
             detectableObjects.Add(collider);
             monsterAudio.Play();
         }
-        
     }
 
-    public void OnTriggerExit2D(Collider2D collider) {
+    private void OnTriggerExit2D(Collider2D collider) {
         if (collider.tag == "Player") {
             detectableObjects.Remove(collider);
         }

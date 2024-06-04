@@ -36418,6 +36418,10 @@ PrefabInstance:
       propertyPath: totalHealth
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 5624415665879882487, guid: aece115858f9b48c5a7467df27e79392, type: 3}
+      propertyPath: collisionDamage
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 7518838872186019937, guid: aece115858f9b48c5a7467df27e79392, type: 3}
       propertyPath: m_Size.y
       value: 0.41262656
