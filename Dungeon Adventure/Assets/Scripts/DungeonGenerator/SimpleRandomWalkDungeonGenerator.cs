@@ -8,8 +8,7 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator
-{
+public class SimpleRandomWalkDungeonGenerator : AbstractDungeonGenerator {
     [SerializeField]    // Exposes in the editor
     private int iterations = 10;
     [SerializeField]    // Allows to be seen in the inspector

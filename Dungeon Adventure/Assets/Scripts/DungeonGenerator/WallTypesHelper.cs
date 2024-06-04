@@ -4,8 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallTypesHelper : MonoBehaviour
-{
+public class WallTypesHelper : MonoBehaviour {
     public static HashSet<int> wallTop = new HashSet<int>
     {
         0b1111,

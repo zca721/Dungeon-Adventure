@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DamageableCharacter : MonoBehaviour, IDamageable
-{
+public class DamageableCharacter : MonoBehaviour, IDamageable {
     Animator animator;
 
     Rigidbody2D rb;
@@ -12,9 +11,9 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
 
     public bool disableSimulation = false;
 
-    bool isAlive = true;
+    public bool isAlive = true;
 
-    public float totalHealth = 30;
+    public float totalHealth = 0;
 
     public bool targetableObject = true;
 
@@ -73,8 +72,7 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     }
     
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         animator = GetComponent<Animator>();
         animator.SetBool("isAlive", isAlive);
         rb = GetComponent<Rigidbody2D>();
@@ -82,10 +80,10 @@ public class DamageableCharacter : MonoBehaviour, IDamageable
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    // void Update()
+    // {
         
-    }
+    // }
 
     public void OnHit(float damage, Vector2 knockback) {
         Health -= damage;

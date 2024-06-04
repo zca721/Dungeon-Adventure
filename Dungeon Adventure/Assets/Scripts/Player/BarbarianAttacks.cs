@@ -6,10 +6,12 @@ using Unity.VisualScripting;
 using UnityEngine;
 
 public class BarbarianAttacks : MonoBehaviour {
-
     public float punchDamage = 10;
+
     public float knockbackForce = 500f;
+
     public Collider2D punchCollider;
+
     Vector2 attackOffset;
     
     // Start is called before the first frame update
@@ -18,9 +20,9 @@ public class BarbarianAttacks : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update() {
+    // void Update() {
         
-    }
+    // }
 
     public void RightAttack() {
         print("Attack right");
@@ -41,7 +43,7 @@ public class BarbarianAttacks : MonoBehaviour {
 
     }
 
-    public void OnTriggerEnter2D(Collider2D collider) {
+    private void OnTriggerEnter2D(Collider2D collider) {
 
         IDamageable damageableObject = collider.GetComponent<IDamageable>();
 
