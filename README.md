@@ -8,6 +8,8 @@ Dungeon Adventure
 - Tom Capaul wants us to create a dungeon adventure game for our course project
 - 2D top down pixel art dungeon adventure game in Unity with VSCode and C#
 - Self created sprite images using GIMP
+- Ingame sounds found online from this website
+  - https://mixkit.co/free-sound-effects/game/
 - Followed this video by Chris' Tutorials to setup Barbarian character and mock dungeon
   - https://www.youtube.com/watch?v=7iYWpzL9GkM&list=LL&index=58
 - Followed this video by Chris' Tutorials to setup Demon monster and all of its attributes
